@@ -1,0 +1,116 @@
+Event-driven contaminant export and watershed predictability
+This repository contains the data-processing and analytical workflow supporting the study:
+
+Event-driven export reveals a watershed vulnerability-predictability gap
+
+The study evaluates how hydrological variability organizes sediment and nutrient export across agricultural watershed monitoring stations and whether environmentally vulnerable stations are also hydrologically predictable.
+
+Study overview
+Monthly streamflow and constituent-load records from four agricultural watershed monitoring stations (LRDW, LRN, LRO, and LRO3) were analyzed from January 2014 to December 2020.
+
+The dataset includes monthly observations of:
+
+Streamflow
+Total suspended solids (TSS)
+Ammonia plus ammonium nitrogen (NH3_NH4_N)
+Nitrate plus nitrite nitrogen (NO3_NO2_N)
+Orthophosphate phosphorus (PO4_P)
+Total phosphorus (P_total)
+Chloride (Cl)
+Dissolved organic carbon (DOC)
+Total dissolved nitrogen (TDN)
+Dissolved and total elemental loads
+A total of 336 station-month observations were evaluated.
+
+Research objectives
+The analysis was designed to:
+
+Characterize seasonal and station-specific hydrological regimes.
+Quantify flow-load relationships and constituent-specific flow elasticity.
+Determine how much contaminant export occurred during high-flow months.
+Evaluate temporal export inequality using Lorenz curves and Gini coefficients.
+Identify deseasonalized directional changes and structural shifts.
+Compare simple and machine-learning streamflow prediction models.
+Test whether contaminant-export vulnerability corresponds to hydrological predictability.
+Analytical workflow
+The repository implements the following analyses:
+
+Data completeness and distribution assessment
+Monthly hydrological and constituent-load climatology
+Flow-duration analysis
+Spearman flow-load associations
+Log-log flow-load elasticity
+High-flow export enrichment
+Lorenz curves and Gini coefficients
+Deseasonalized Mann-Kendall trend tests
+Sen's slope estimation
+Benjamini-Hochberg false-discovery-rate correction
+Exploratory structural change-point screening
+Rolling-origin streamflow forecasting
+Vulnerability-predictability assessment
+Machine-learning models
+The following streamflow prediction approaches were evaluated:
+
+Persistence
+Seasonal-naive prediction
+Random Forest
+Extra Trees
+Histogram-based Gradient Boosting
+Predictors included streamflow at 1-, 2-, 3-, 6-, and 12-month lags, antecedent 3- and 6-month mean streamflow, and cyclic calendar variables.
+
+An expanding-window rolling-origin design was used:
+
+Data available through 2016 were used to predict 2017.
+Data available through 2017 were used to predict 2018.
+Data available through 2018 were used to predict 2019.
+Data available through 2019 were used to predict 2020.
+Model performance was evaluated using:
+
+Nash-Sutcliffe efficiency (NSE)
+Kling-Gupta efficiency (KGE)
+Root-mean-square error (RMSE)
+Mean absolute error (MAE)
+Percentage bias (PBIAS)
+Key findings
+The analysis showed that contaminant export was strongly concentrated during a limited number of hydrologically active months.
+
+The top 10% of flow months accounted for 85.9% of observed orthophosphate export at LRN.
+The same high-flow fraction accounted for 59.9% of orthophosphate export at LRO.
+High-flow months accounted for 53.4% of nitrate-nitrite export at LRO3.
+High-flow months accounted for 46.9% of suspended-sediment export at LRDW.
+Eight of 36 deseasonalized trends remained significant after false-discovery-rate correction.
+Random Forest produced the strongest streamflow prediction at LRO.
+Persistence remained more robust than complex models at some stations.
+Contaminant-export vulnerability did not consistently correspond to hydrological predictability.
+The findings indicate that export inequality and predictive reliability represent distinct dimensions of watershed risk.
+
+Repository structure
+watershed-event-export-ml/
+├── README.md
+├── LICENSE
+├── CITATION.cff
+├── requirements.txt
+├── .gitignore
+│
+├── data/
+│   └── raw/
+│       ├── dairy_watershed_monthly_loads.csv
+│       └── README.md
+│
+├── src/
+│   └── run_analysis.py
+│
+└── results/
+    ├── figures/
+    │   ├── figure_01.png
+    │   ├── figure_02.png
+    │   ├── figure_03.png
+    │   ├── figure_04.png
+    │   ├── figure_05.png
+    │   ├── figure_06.png
+    │   ├── figure_07.png
+    │   ├── figure_08.png
+    │   └── figure_09.png
+    │
+    ├── generated_figures/
+    └── generated_tables/
