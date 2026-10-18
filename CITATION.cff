@@ -1,2 +1,30 @@
-Add file
-→ Create new file
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as below."
+title: "Event-driven contaminant export and watershed predictability analysis"
+type: software
+
+authors:
+  - family-names: "Hridoy"
+    given-names: "Abdullah"
+
+version: 1.0.0
+date-released: "2026-10-19"
+
+repository-code: "https://github.com/MHridoy-123/Hydrology-watershed-project-1_ML"
+url: "https://github.com/MHridoy-123/Hydrology-watershed-project-1_ML"
+
+license: MIT
+
+abstract: >-
+  Reproducible analysis of monthly streamflow and multi-constituent loads
+  across agricultural watershed monitoring stations, including high-flow
+  export enrichment, flow-load elasticity, temporal trends, export
+  inequality, hydrological nonstationarity, and rolling-origin machine
+  learning.
+
+keywords:
+  - agricultural watershed
+  - contaminant export
+  - hydrological nonstationarity
+  - export inequality
+  - machine learning
